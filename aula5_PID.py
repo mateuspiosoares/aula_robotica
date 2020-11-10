@@ -118,8 +118,8 @@ def timerCallBack(event):
         old_error = error
         
         msg = Twist()
-        #msg.angular.z = control
-        
+        msg.angular.z = control
+    '''   
         print("State: ", state)
         if (msg.angular.z == 0):
             state = 1
@@ -144,12 +144,12 @@ def timerCallBack(event):
         elif control < -1:
             control = -1
         msg = Twist()
-        msg.linear.x = PID
+        msg.linear.x = control
         print("State: ", state)
         if (msg.linear.x == 0):
             state = 2
             print("State: ", state)
-            
+    '''        
     pub.publish(msg)
 
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
