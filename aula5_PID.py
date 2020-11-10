@@ -127,7 +127,7 @@ def timerCallBack(event):
         if scan_len > 0:
             read = min(scan.ranges[scan_len-10 : scan_len+10])
         
-        if (read < 100):
+        if (0 < read < 100):
             state = 1
             print("State: ", state)
         
