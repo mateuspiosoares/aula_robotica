@@ -8,9 +8,9 @@ import math
 print('teste')
 state = 0
 
-kp = 1
+kp = 2
 ki = 2
-kd = 3
+kd = 6
 I = 0
 setpoint = 0
 process_var = 0
