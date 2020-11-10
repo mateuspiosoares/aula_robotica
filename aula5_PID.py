@@ -99,12 +99,16 @@ def timerCallBack(event):
     global read
     
     if state == 0:
-        setpoint = 0.5
+        setpoint = 1000
     
         scan_len = len(scan.ranges)
         if scan_len > 0:
             read = min(scan.ranges[scan_len-10 : scan_len+10])
-
+        '''
+        for i in range(tamanho):
+            if scan.ranges[i] == menor:
+            posicao = i   
+        ''' 
         error = setpoint - read
         P = kp*error
         I = I + error * ki
@@ -116,8 +120,34 @@ def timerCallBack(event):
         msg.angular.z = PID
         pub.publish(msg)
         print("State: ", state)
-        if (msg.angular. z == 0):
+        if (msg.angular.z == 0):
             state = 1
+            print("State: ", state)
+        
+    elif state == 1:    
+        setpoint = 0.5
+    
+        scan_len = len(scan.ranges)
+        if scan_len > 0:
+            read = min(scan.ranges[scan_len-10 : scan_len+10])
+
+        error = setpoint - read
+        P = kp*error
+        I = I + error * ki
+        D = (error - old_error)*kd
+
+        control = P + I + D
+        old_error = error
+        if control > 1:
+            control = 1
+        elif control < -1:
+            control = -1
+        msg = Twist()
+        msg.linear.x = PID
+        pub.publish(msg)
+        print("State: ", state)
+        if (msg.linear.x == 0):
+            state = 2
             print("State: ", state)
     
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
