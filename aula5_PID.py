@@ -113,12 +113,13 @@ def timerCallBack(event):
         P = kp*error
         I = I + error * ki
         D = (error - old_error)*kd
-
-        PID = P + I + D
+        
+        control = P + I + D
         old_error = error
+        
         msg = Twist()
-        msg.angular.z = PID
-        pub.publish(msg)
+        #msg.angular.z = control
+        
         print("State: ", state)
         if (msg.angular.z == 0):
             state = 1
@@ -144,12 +145,13 @@ def timerCallBack(event):
             control = -1
         msg = Twist()
         msg.linear.x = PID
-        pub.publish(msg)
         print("State: ", state)
         if (msg.linear.x == 0):
             state = 2
             print("State: ", state)
-    
+            
+    pub.publish(msg)
+
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 odom_sub = rospy.Subscriber('/odom', Odometry, odomCallBack)
 scan_sub = rospy.Subscriber('/scan', LaserScan, scanCallBack)
