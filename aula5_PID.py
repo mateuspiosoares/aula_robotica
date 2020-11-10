@@ -5,7 +5,7 @@ from sensor_msgs.msg import LaserScan
 import tf
 import math
 
-
+print('teste')
 state = 0
 
 kp = 1
