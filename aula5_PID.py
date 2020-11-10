@@ -8,9 +8,10 @@ import math
 print('teste')
 state = 0
 
-kp = 2
-ki = 2
-kd = 6
+
+kp = float(input("kp = "))
+ki = float(input("ki = "))
+kd = float(input("kd = "))
 I = 0
 setpoint = 0
 process_var = 0
