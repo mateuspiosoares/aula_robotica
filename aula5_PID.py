@@ -16,6 +16,7 @@ setpoint = 0
 process_var = 0
 error = 0
 old_error = 0
+read = 0
 
 odom = Odometry()
 scan = LaserScan()
@@ -95,6 +96,7 @@ def timerCallBack(event):
     global error
     global old_error
     global pub
+    global read
     
     if state == 0:
         setpoint = 0.5
