@@ -165,9 +165,10 @@ def timerCallBack(event):
             msg.linear.x = 0
             state = 0
             print("State: ", state)
-           
+          
     pub.publish(msg)
-
+    print(msg.linear.x)
+    
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 odom_sub = rospy.Subscriber('/odom', Odometry, odomCallBack)
 scan_sub = rospy.Subscriber('/scan', LaserScan, scanCallBack)
