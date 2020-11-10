@@ -118,7 +118,7 @@ def timerCallBack(event):
         old_error = error
         
         msg = Twist()
-        msg.angular.z = control
+        #msg.angular.z = control
     '''   
         print("State: ", state)
         if (msg.angular.z == 0):
