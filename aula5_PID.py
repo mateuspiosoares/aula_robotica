@@ -99,16 +99,11 @@ def timerCallBack(event):
     global read
     
     if state == 0:
-        setpoint = 1000
+        setpoint = 80
     
         scan_len = len(scan.ranges)
         if scan_len > 0:
             read = min(scan.ranges[scan_len-10 : scan_len+10])
-        '''
-        for i in range(tamanho):
-            if scan.ranges[i] == menor:
-            posicao = i   
-        ''' 
         error = setpoint - read
         P = kp*error
         I = I + error * ki
@@ -116,15 +111,19 @@ def timerCallBack(event):
         
         control = P + I + D
         old_error = error
+        if control > 1:
+            control = 1
+        elif control < -1:
+            control = -1
         
         msg = Twist()
         msg.angular.z = control
         print("State: ", state)
-        '''
-        if (msg.angular.z == 0):
+        
+        if (read < 100):
             state = 1
             print("State: ", state)
-        '''
+        
     elif state == 1:    
         setpoint = 0.5
     
