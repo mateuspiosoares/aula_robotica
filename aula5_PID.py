@@ -129,6 +129,7 @@ def timerCallBack(event):
         scan_len = len(scan.ranges)
         if scan_len > 0:
             read = min(scan.ranges[scan_len-10 : scan_len+10])
+            print(read)
             
         if (0 < read < 100):
             msg.angular.z = 0
