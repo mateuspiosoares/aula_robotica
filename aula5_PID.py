@@ -150,7 +150,7 @@ def timerCallBack(event):
 
             control = P + I + D
             old_error = error
-        
+            print(control)
             if control > 1:
                 control = 1
             elif control < -1:
