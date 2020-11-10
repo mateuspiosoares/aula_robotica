@@ -9,8 +9,8 @@ print('teste')
 state = 0
 
 kp = 1
-ki = 2
-kd = 3
+ki = 0.5
+kd = 1
 I = 0
 setpoint = 0
 process_var = 0
