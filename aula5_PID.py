@@ -33,25 +33,6 @@ def getAngle(msg):
     yaw = euler[2]*180.0/math.pi
     return yaw
 
-'''
-def findObjeto(msg):
-    setpoint = 0.5
-    
-    scan_len = len(scan.ranges)
-    if scan_len > 0:
-        read = min(scan.ranges[scan_len-10 : scan_len+10])
-
-    error = setpoint - read
-    P = kp*error
-    I = I + error * ki
-    D = (error - old_error)*kd
-
-    PID = P + I + D
-    old_error = error
-    msg = Twist()
-    msg.angular.z = PID
-    pub.publish(msg)
-'''
 
 # CALLBACKS ---------------------------------------------------------
 def odomCallBack(msg):
@@ -64,26 +45,6 @@ def scanCallBack(msg):
 
 
 #--------------------------------------------------------------------
-'''
-def controlAngle(msg):
-    yaw = getAngle(odom)
-    setpoint = -45
-    error = (setpoint - yaw)
-    
-    if abs(error) > 180:
-        if setpoint < 0:
-            error += 360 
-        else:
-            error -= 360
-
-    P = kp*error
-    I = 0
-    D = 0
-    control = P+I+D
-    msg = Twist()
-    msg.angular.z = control
-    pub.publish(msg)
-  '''  
 
 # TIMER - Control Loop ----------------------------------------------
 def timerCallBack(event):
