@@ -95,8 +95,9 @@ def timerCallBack(event):
             
         if (0 < read < 100):
             msg.angular.z = 0
-            state = 1
             print("State: ", state)
+            state = 1
+            
         
     elif state == 1:    
         setpoint = 0.5
