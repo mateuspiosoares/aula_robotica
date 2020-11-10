@@ -126,8 +126,9 @@ def timerCallBack(event):
         scan_len = len(scan.ranges)
         if scan_len > 0:
             read = min(scan.ranges[scan_len-10 : scan_len+10])
-        
+            
         if (0 < read < 100):
+            msg.angular.z = 0
             state = 1
             print("State: ", state)
         
@@ -153,6 +154,7 @@ def timerCallBack(event):
         msg.linear.x = control
         print("State: ", state)
         if (msg.linear.x == 0):
+            msg.linear.x = 0
             state = 0
             print("State: ", state)
            
