@@ -126,18 +126,21 @@ def timerCallBack(event):
         if scan_len > 0:
             read = min(scan.ranges[scan_len-10 : scan_len+10])
             print("Read: ", read)
-            error = abs(setpoint - read)
-            P = kp*error
-            I = Int + error * ki
-            D = (error - old_error)*kd
-
-            control = P + I + D
-            old_error = error
-            print("Control: ", control)
-            if control > 1:
-                control = 1
-            elif control < -1:
-                control = -1
+            if read < 999:
+                error = abs(setpoint - read)
+                P = kp*error
+                I = Int + error * ki
+                D = (error - old_error)*kd
+    
+                control = P + I + D
+                old_error = error
+                print("Control: ", control)
+                if control > 1:
+                    control = 1
+                elif control < -1:
+                    control = -1
+            else: 
+                print("Entrou no infinito")
         else:
             control = 0 
         
