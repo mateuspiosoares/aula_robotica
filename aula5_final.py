@@ -159,6 +159,7 @@ def timerCallBack(event):
             state = 2
             
     elif state == 2:
+        scan_len = len(scan.ranges)
         read = min(scan.ranges[scan_len-10 : scan_len+10])
         
         print ('Cheguei!')
