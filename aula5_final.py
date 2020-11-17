@@ -40,7 +40,7 @@ def getAngle(msg):
     euler = tf.transformations.euler_from_quaternion(quat)
     yaw = euler[2]*180.0/math.pi
     return yaw
-
+'''
 pinha = '2017005795'
 pio = '2017006353'
 barbara = '2017005795'
@@ -71,7 +71,7 @@ def mediaSomaMatriculas(msg):
 frequencia = mediaSomaMatriculas(matricula)
 T = 1.0/frequencia
 print('Tempo: '+str(T))
-'''
+
 
 # CALLBACKS ---------------------------------------------------------
 def odomCallBack(msg):
