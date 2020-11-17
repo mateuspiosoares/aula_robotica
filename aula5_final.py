@@ -159,12 +159,9 @@ def timerCallBack(event):
             
     elif state == 2:
         print ('Cheguei!')
-        msg.angular.z = 0
-        pub.publish(msg)
-        '''
         if ((read > 0.5) or ((ang - yaw) > 1)):
             state = 0
-        '''
+
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 odom_sub = rospy.Subscriber('/odom', Odometry, odomCallBack)
 scan_sub = rospy.Subscriber('/scan', LaserScan, scanCallBack)
