@@ -140,7 +140,7 @@ def timerCallBack(event):
         msg.linear.x = control
         print("State: ", state)
         print(error)
-        if (abs(error) < 1):
+        if (read < 0.5):
             msg.linear.x = 0
             state = 0
             print("State: ", state)
