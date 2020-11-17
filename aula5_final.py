@@ -139,7 +139,7 @@ def timerCallBack(event):
         msg = Twist()
         msg.linear.x = control
         print("State: ", state)
-        if (read>100):
+        if (error < 0.5):
             msg.linear.x = 0
             state = 0
             print("State: ", state)
