@@ -146,10 +146,10 @@ def timerCallBack(event):
         pub.publish(msg)
         print("State: ", state)
         print(error)
-        if (read < 0.5):
+        if (error < 1):
             msg.linear.x = 0
             pub.publish(msg)
-            state = 0
+            state = 2
             print("State: ", state)
     '''      
     elif state == 2:
