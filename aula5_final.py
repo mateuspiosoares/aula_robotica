@@ -106,7 +106,7 @@ def timerCallBack(event):
         msg.angular.z = control
         pub.publish(msg)
         print("State: ", state)
-        print(abs(error))
+        print("Erro:", abs(error))
         #Troca de estado
         if (0 < abs(error) < 1):
             Int = 0
@@ -133,7 +133,7 @@ def timerCallBack(event):
 
             control = P + I + D
             old_error = error
-            print(control)
+            print("Control: ", control)
             if control > 1:
                 control = 1
             elif control < -1:
