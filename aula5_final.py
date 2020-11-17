@@ -145,7 +145,7 @@ def timerCallBack(event):
         msg.linear.x = control
         pub.publish(msg)
         print("State: ", state)
-        print(error)
+        print("Erro: ", error)
 
         if (0 < error < 0.5):
             msg.linear.x = 0
