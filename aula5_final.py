@@ -139,17 +139,17 @@ def timerCallBack(event):
                     control = 1
                 elif control < -1:
                     control = -1
+                
+                msg = Twist()
+                msg.linear.x = control
+                pub.publish(msg)
+                print("State: ", state)
+                print("Erro: ", error)
             else: 
                 print("Entrou no infinito")
                 state = 0
         else:
             control = 0 
-        
-        msg = Twist()
-        msg.linear.x = control
-        pub.publish(msg)
-        print("State: ", state)
-        print("Erro: ", error)
 
         if (0 < error < 0.5):
             msg.linear.x = 0
