@@ -159,20 +159,11 @@ def timerCallBack(event):
             state = 2
             
     elif state == 2:
-        scan_len = len(scan.ranges)
-        
-        yaw = getAngle(odom)
-            
-        ind = scan.ranges.index(min(scan.ranges))
-        inc = 2*math.pi / scan_len
-        ang = (ind * inc * 180.0/math.pi) + yaw
-        if ang > 180:
-            ang -= 360
+        read = min(scan.ranges[scan_len-10 : scan_len+10])
         
         print ('Cheguei!')
         print('Read: ', read)
-        print('Ang: ', ang)
-        print('Abs: ', abs(ang - yaw))
+
         if (read > 2):
             state = 0
 
