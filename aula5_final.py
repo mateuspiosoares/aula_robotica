@@ -110,8 +110,8 @@ def timerCallBack(event):
             Int = 0
             msg.angular.z = 0
             kp = 1
-            ki = 2
-            kd = 1 
+            ki = 0.03
+            kd = 0.04 
             state = 1
             
         
