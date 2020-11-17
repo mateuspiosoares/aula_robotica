@@ -19,7 +19,7 @@ error = 0
 old_error = 0
 read = 0
 
-T = 
+T = 0.05
 
 odom = Odometry()
 scan = LaserScan()
