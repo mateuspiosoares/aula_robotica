@@ -1,3 +1,5 @@
+#coordenadas -1.6747492596012297 1.5183799625393037
+
 import rospy
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
@@ -20,12 +22,15 @@ old_error = 0
 read = 0
 Int = 0
 
-T = 0.05
+T = 0
 
 odom = Odometry()
 scan = LaserScan()
 
 rospy.init_node('cmd_node')
+
+
+matricula = [2019000063, 2017006353, 2017005795, 35132, 2017014453]
 
 
 # Auxiliar functions ------------------------------------------------
@@ -36,6 +41,36 @@ def getAngle(msg):
     yaw = euler[2]*180.0/math.pi
     return yaw
 
+pinha = '2017005795'
+pio = '2017006353'
+barbara = '2017005795'
+lucas = '35132'
+miguel = '2017014453'
+soma = 0
+string = pinha + pio + barbara + lucas + miguel
+div = len(string)
+for i in range(div):
+    soma = soma + int(string[i])
+T = soma/div
+print(T)
+
+'''
+def mediaSomaMatriculas(msg):
+    media = 0
+    for matricula in msg:
+        somaMatricula = 0
+        for i in str(matricula):
+            somaMatricula += int(i)
+            
+        media += somaMatricula
+        
+    media = float(media)/len(msg)
+    return media
+    
+frequencia = mediaSomaMatriculas(matricula)
+T = 1.0/frequencia
+print('Tempo: '+str(T))
+'''
 
 # CALLBACKS ---------------------------------------------------------
 def odomCallBack(msg):
