@@ -5,7 +5,7 @@ from sensor_msgs.msg import LaserScan
 import tf
 import math
 
-print('teste')
+
 state = 0
 
 
@@ -111,7 +111,7 @@ def timerCallBack(event):
             msg.angular.z = 0
             kp = 1
             ki = 2
-            kd = 3 
+            kd = 1 
             state = 1
             
         
@@ -139,7 +139,8 @@ def timerCallBack(event):
         msg = Twist()
         msg.linear.x = control
         print("State: ", state)
-        if (error < 0.5):
+        print(error)
+        if (abs(error) < 1):
             msg.linear.x = 0
             state = 0
             print("State: ", state)
