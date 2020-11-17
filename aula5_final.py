@@ -149,6 +149,7 @@ def timerCallBack(event):
 
         if (0 < error < 0.5):
             msg.linear.x = 0
+            msg.angular.z = 0
             pub.publish(msg)
             print("State: ", state)
             state = 2
