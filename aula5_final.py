@@ -51,7 +51,8 @@ string = pinha + pio + barbara + lucas + miguel
 div = len(string)
 for i in range(div):
     soma = soma + int(string[i])
-T = soma/div
+frequencia = soma/div
+T = 1/frequencia
 print(T)
 
 '''
