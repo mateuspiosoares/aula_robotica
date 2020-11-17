@@ -151,7 +151,7 @@ def timerCallBack(event):
     elif state == 2:
         if abs(error) > 1 or read > 0.5:
             state = 0
-    print(msg.linear.x)
+
     
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 odom_sub = rospy.Subscriber('/odom', Odometry, odomCallBack)
