@@ -129,12 +129,22 @@ def timerCallBack(event):
             print("Read: ", read)
             if read < 999:
                 error = abs(setpoint - read)
+                
+                delta_e = error - old_error
+                old_error = error
+            
+                P = kp*error
+                Int += error*T
+                I = Int * ki
+                D = delta_e * kd
+                
+                '''
                 P = kp*error
                 I = Int + error * ki
                 D = (error - old_error)*kd
-    
+                '''    
                 control = P + I + D
-                old_error = error
+                #old_error = error
                 print("Control: ", control)
                 if control > 1:
                     control = 1
