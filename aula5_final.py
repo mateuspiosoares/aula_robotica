@@ -149,14 +149,17 @@ def timerCallBack(event):
         if (0 < error < 0.5):
             msg.linear.x = 0
             pub.publish(msg)
-            state = 2
+            print ('Cheguei!')
             print("State: ", state)
-        
+            if (error > 0.5):
+                state = 0
+            
+    '''    
     elif state == 2:
         print ('Cheguei!')
         if ((abs(error) > 1) or (error > 0.5)):
             state = 0
-    
+    '''
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 odom_sub = rospy.Subscriber('/odom', Odometry, odomCallBack)
 scan_sub = rospy.Subscriber('/scan', LaserScan, scanCallBack)
