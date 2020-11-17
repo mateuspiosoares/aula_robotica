@@ -40,22 +40,7 @@ def getAngle(msg):
     euler = tf.transformations.euler_from_quaternion(quat)
     yaw = euler[2]*180.0/math.pi
     return yaw
-'''
-pinha = '2017005795'
-pio = '2017006353'
-barbara = '2017005795'
-lucas = '35132'
-miguel = '2017014453'
-soma = 0
-string = pinha + pio + barbara + lucas + miguel
-div = len(string)
-for i in range(div):
-    soma = soma + int(string[i])
-frequencia = soma/div
-T = 1/frequencia
-print(T)
 
-'''
 def mediaSomaMatriculas(msg):
     media = 0
     for matricula in msg:
