@@ -18,6 +18,7 @@ process_var = 0
 error = 0
 old_error = 0
 read = 0
+Int = 0
 
 T = 0.05
 
@@ -62,7 +63,8 @@ def timerCallBack(event):
     global pub
     global read
     global T
-
+    global Int
+    
     if state == 0:
         scan_len = len(scan.ranges)
         
