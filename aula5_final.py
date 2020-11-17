@@ -159,7 +159,10 @@ def timerCallBack(event):
             
     elif state == 2:
         print ('Cheguei!')
-        if ((read > 0.5) or ((ang - yaw) > 1)):
+        print('Read: ', read)
+        print('Ang: ', ang)
+        print('Abs: ', abs(ang - yaw))
+        if ((read > 2) or (abs(ang - yaw) > 10)):
             state = 0
 
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
