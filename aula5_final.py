@@ -146,7 +146,7 @@ def timerCallBack(event):
         pub.publish(msg)
         print("State: ", state)
         print(error)
-        if (error < 1):
+        if (0 < error < 1):
             msg.linear.x = 0
             pub.publish(msg)
             state = 2
