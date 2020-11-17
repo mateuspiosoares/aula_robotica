@@ -164,8 +164,9 @@ def timerCallBack(event):
         
         print ('Cheguei!')
         print('Read: ', read)
-        
+        msg = Twist()
         msg.angular.z = 0
+        msg.linear.x = 0
         pub.publish(msg)
         
         if (read > 2):
