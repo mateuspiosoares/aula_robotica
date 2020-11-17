@@ -164,7 +164,10 @@ def timerCallBack(event):
         
         print ('Cheguei!')
         print('Read: ', read)
-
+        
+        msg.angular.z = 0
+        pub.publish(msg)
+        
         if (read > 2):
             state = 0
 
