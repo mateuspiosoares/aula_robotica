@@ -104,11 +104,12 @@ def timerCallBack(event):
             control = 0
         msg = Twist()
         msg.angular.z = control
-                
+        pub.publish(msg)        
         #Troca de estado
         if abs(error) < 1:
             Int = 0
             msg.angular.z = 0
+            pub.publish(msg)
             kp = 1
             ki = 0.03
             kd = 0.04 
@@ -138,6 +139,7 @@ def timerCallBack(event):
         
         msg = Twist()
         msg.linear.x = control
+        pub.publish(msg)
         print("State: ", state)
         print(error)
         if (read < 0.5):
@@ -145,7 +147,7 @@ def timerCallBack(event):
             state = 0
             print("State: ", state)
           
-    pub.publish(msg)
+    
     print(msg.linear.x)
     
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
