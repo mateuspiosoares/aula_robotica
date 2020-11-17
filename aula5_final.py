@@ -104,7 +104,9 @@ def timerCallBack(event):
             control = 0
         msg = Twist()
         msg.angular.z = control
-        pub.publish(msg)        
+        pub.publish(msg)
+        print("State: ", state)
+        print(abs(error))
         #Troca de estado
         if abs(error) < 1:
             Int = 0
