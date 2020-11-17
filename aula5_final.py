@@ -96,10 +96,10 @@ def timerCallBack(event):
             D = delta_e * kd
             
             control = P+I+D
-            if control > 0.5:
-                control = 0.5
-            elif control < -0.5:
-                control = -0.5
+            if control > 1:
+                control = 1
+            elif control < -1:
+                control = -1
         else:
             control = 0
         msg = Twist()
@@ -155,9 +155,10 @@ def timerCallBack(event):
             
     elif state == 2:
         print ('Cheguei!')
+        '''
         if ((read > 0.5) or ((ang - yaw) > 1)):
             state = 0
-    
+        '''
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 odom_sub = rospy.Subscriber('/odom', Odometry, odomCallBack)
 scan_sub = rospy.Subscriber('/scan', LaserScan, scanCallBack)
