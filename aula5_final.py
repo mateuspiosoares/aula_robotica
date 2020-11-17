@@ -128,7 +128,7 @@ def timerCallBack(event):
 
             error = abs(setpoint - read)
             P = kp*error
-            I = I + error * ki
+            I = Int + error * ki
             D = (error - old_error)*kd
 
             control = P + I + D
