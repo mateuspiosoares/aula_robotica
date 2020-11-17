@@ -108,6 +108,8 @@ def timerCallBack(event):
         #Troca de estado
         if abs(error) < 1:
             Int = 0
+            msg.angular.z = 0
+            pub.publish(msg)
             kp = float(input("kp = "))
             ki = float(input("ki = "))
             kd = float(input("kd = ")) 
