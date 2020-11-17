@@ -160,7 +160,7 @@ def timerCallBack(event):
     elif state == 2:
         print ('Cheguei!')
         print('Read: ', read)
-        print('Ang: ', ang)
+        #print('Ang: ', ang)
         print('Abs: ', abs(ang - yaw))
         if ((read > 2) or (abs(ang - yaw) > 10)):
             state = 0
