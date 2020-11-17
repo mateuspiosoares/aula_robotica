@@ -159,6 +159,8 @@ def timerCallBack(event):
             state = 2
             
     elif state == 2:
+        scan_len = len(scan.ranges)
+        
         yaw = getAngle(odom)
             
         ind = scan.ranges.index(min(scan.ranges))
