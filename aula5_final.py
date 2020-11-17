@@ -149,13 +149,14 @@ def timerCallBack(event):
 
         if (0 < error < 0.5):
             msg.linear.x = 0
-            msg.angular.z = 0
             pub.publish(msg)
             print("State: ", state)
             state = 2
             
     elif state == 2:
         print ('Cheguei!')
+        msg.angular.z = 0
+        pub.publish(msg)
         '''
         if ((read > 0.5) or ((ang - yaw) > 1)):
             state = 0
