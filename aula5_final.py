@@ -141,6 +141,7 @@ def timerCallBack(event):
                     control = -1
             else: 
                 print("Entrou no infinito")
+                state = 0
         else:
             control = 0 
         
